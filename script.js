@@ -5,7 +5,7 @@ $(function () {
   //listens for clicks on the save button and stores the input in localStorage as hour:description key value pair
   $(".saveBtn").click (function () {
     var description = $(this).siblings(".description").val();
-    var hour = $(this).closest(".time-block").attr("id");
+    var hour = $(this).parent(".time-block").attr("id");
     localStorage.setItem(hour, description);
   });
 
@@ -28,7 +28,7 @@ $(function () {
     var hour = $(this).attr("id");
     var description = localStorage.getItem(hour);
     if(description){
-      $(this).find(".description").val(description);
+      $(this).children(".description").val(description);
     }
   });
 });
